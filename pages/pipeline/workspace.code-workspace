@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\kasara"
+		},
+		{
+			"path": "..\\..\\..\\Stress\\core-prov"
+		},
+		{
+			"path": "..\\esarpem"
+		},
+		{
+			"path": "..\\esarpem_beta"
+		}
+	],
+	"settings": {}
+}
