@@ -69,42 +69,32 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-              Data Alokasi Pupuk
+              Pemetaan
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="provinsi_data.php" class="nav-link ">
+                <a href="view_lahan.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Provinsi</p>
+                  <p>Lahan Sawah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="kabupaten_data.php" class="nav-link ">
+                <a href="view_sawah.php" class="nav-link active ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kabupaten</p>
+                  <p>Toko Pupuk</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="alokasi_data.php" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p> Data Alokasi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="alokasi_data_all.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p> Alokasi Keseluruhan</p>
-                </a>
-              </li>
+              
+              
             </ul>
           </li>
           <li class="nav-item">
               <a href="#" class="nav-link  ">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Manage Data Alokasi
+                  Manage Data Pemetaan
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -112,29 +102,42 @@
                 <li class="nav-item">
                   <a href="../form_data/add_data_kec.php" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
-                    <p> Tambah Data</p>
+                    <p> Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="../layout/boxed.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p> Tambah Data Alokasi</p>
+                    <p> Data Toko Pupuk</p>
                   </a>
                 </li>
               </ul>
             </li>
-              <li class="nav-item">
-                <a href="..\examples\404.html" class="nav-link ">
-                  <i class="far fa-copy nav-icon"></i>
-                  <p> ALSINTAN</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="..\examples\404.html" class="nav-link ">
-                  <i class="far fa-copy nav-icon"></i>
-                  <p> Pembiayaan Pertanian</p>
-                </a>
-              </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link  ">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+               Master Data
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Upload Data Lahan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../layout/boxed.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Upload Toko Pupuk</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+              
+              
               <li class="nav-item">
                 <a href="../pipeline/logout.php" class="nav-link ">
                   <i class="far fa-copy nav-icon"></i>

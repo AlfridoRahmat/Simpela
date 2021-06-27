@@ -6,32 +6,38 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SIMPELA Pertanian</title>
-  <link rel="icon" type="image/png" href="../../../asset/images/icons/favicon.ico"/>
+  <link rel="icon" type="image/png" href="../../asset/images/icons/favicon.ico"/>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Leaflet -->
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet-src.js"></script>
 	<script src="https://unpkg.com/leaflet-ui@0.4.5/dist/leaflet-ui-src.js"></script>
 
-	<script src="../dist/leaflet-kmz-src.js"></script>
+	<script src="dist/leaflet-kmz-src.js"></script>
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <style>
-    
-      .map {
+       html, body {
+        height: 100%;
         margin: 0;
         padding: 0;
-        width: 1200px;
-        height: 450px;
+      }
+      .map {
+        /* margin: 0;
+        padding: 0; */
+        /* width: 1200px; */
+        /* height: 100%; */
+        /* width: 1200px; */
+        height: 600px;
       }
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="../../../dist/img/logop.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="../../dist/img/logop.png" alt="AdminLTELogo" height="60" width="60">
   </div>  
 
 <!-- Navbar -->
@@ -45,7 +51,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../index.php" class="brand-link">
-      <img src="../../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
+      <img src="../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
       <span class="brand-text font-weight-light">Simpela Pertanian</span>
     </a>
 
@@ -87,13 +93,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="provinsi_data.php" class="nav-link ">
+                <a href="view_lahan.php" class="nav-link active ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lahan Sawah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="kabupaten_data.php" class="nav-link ">
+                <a href="view_sawah.php" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Toko Pupuk</p>
                 </a>
@@ -198,25 +204,25 @@
               <!-- /.card-header -->
               <div class="card-body">
               <!-- // mapnya anjg -->
-              <div id="map" class="map"> </div>
+              <div id="map" class="map"></div>
               <script>
 		var map = L.map('map', {
 			center: [-4.00009925001936, 122.5142745973001], 
 			zoom: 12,
 			mapTypeId: 'satellite',
-			mapTypeIds: ['streets', 'terrain', 'satellite', 'topo'],
+			mapTypeIds: ['streets',  'satellite', 'topo'],
 			gestureHandling: false,
 			searchControl: false,
-			locateControl: true,
+			locateControl: false,
 			pegmanControl: false,
 			fullscreenControl: true,
 			minimapControl: false,
 			preferCanvas: false,
 			trackResize: true,
-			attributeControl: true,
+			attributeControl: false,
 			minZoom:11,
 			maxZoom:17,
-			visualClick:true,
+			visualClick:false,
 			//disableDefaultUI: false,
 			//layersControl: false,
 
@@ -242,13 +248,13 @@
 		}).addTo(map);
 
 		kmz.on('load', function(e) {
-			control.addOverlay(e.layer, e.name);
-			// e.layer.addTo(map);
+			// control.addOverlay(e.layer, e.name);
+			e.layer.addTo(map);
 		});
 
 		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
-		kmz.add('../asset/file_kmz/itulah.kmz');
-		// kmz.add('../asset/file_kmz/hmmitumi.kmz');
+		kmz.add('asset/file_kmz/itulah.kmz');
+		kmz.add('asset/file_kmz/hmmitumi.kmz');
 
 
 
@@ -258,25 +264,7 @@
 		// kmz.add('../examples/multigeometry.kmz');
 		// kmz.add('../examples/etna.kmz');
 
-		// var opts = {
-		// 	elevationControl: {
-		// 		url: "https://raruto.github.io/leaflet-elevation/examples/via-emilia.gpx",
-		// 		options: {
-		// 			theme: "lightblue-theme",
-		// 			collapsed: false,
-		// 			detached: false,
-		// 			summary: "inline",
-		// 			followMarker: false,
-		// 			position: 'bottomleft',
-		// 			collapsed: true,
-		// 		},
-		// 	},
-		// 	layersControl: {
-		// 		options: {
-		// 			collapsed: false,
-		// 		},
-		// 	},
-		// };
+		
 
 		// var controlElevation;
 
@@ -296,9 +284,13 @@
 		//
 		// });
 
-		var control = L.control.layers(null, null, {
-			collapsed: false
-		}).addTo(map);
+
+
+      // Model Di Kanan Atas Utk Display Semua KMZ yang ada
+
+		// var control = L.control.layers(null, null, {
+		// 	collapsed: false
+		// }).addTo(map);
 	</script>
 
 
@@ -343,14 +335,14 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
 <!-- AdminLTE App -->
-<script src="../../../dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../../dist/js/demo.js"></script>
+<script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 
 </body>

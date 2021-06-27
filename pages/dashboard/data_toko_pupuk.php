@@ -2,36 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SIMPELA Pertanian</title>
-  <link rel="icon" type="image/png" href="../../../asset/images/icons/favicon.ico"/>
+  <title>e-Sarpem Pertanian</title>
+  <link rel="icon" type="image/png" href="../../asset/images/icons/favicon.ico"/>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Leaflet -->
-	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet-src.js"></script>
-	<script src="https://unpkg.com/leaflet-ui@0.4.5/dist/leaflet-ui-src.js"></script>
-
-	<script src="../dist/leaflet-kmz-src.js"></script>
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
-  <style>
-    
-      .map {
-        margin: 0;
-        padding: 0;
-        width: 1200px;
-        height: 450px;
-      }
-    </style>
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="../../../dist/img/logop.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="../../dist/img/logop.png" alt="AdminLTELogo" height="60" width="60">
   </div>  
 
 <!-- Navbar -->
@@ -45,8 +33,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../index.php" class="brand-link">
-      <img src="../../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
-      <span class="brand-text font-weight-light">Simpela Pertanian</span>
+      <img src="../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
+      <span class="brand-text font-weight-light">e-Sarpem Pertanian</span>
     </a>
 
     <!-- Sidebar -->
@@ -78,7 +66,7 @@
    
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
               Pemetaan
@@ -87,13 +75,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="provinsi_data.php" class="nav-link ">
+                <a href="view_lahan.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lahan Sawah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="kabupaten_data.php" class="nav-link ">
+                <a href="view_sawah.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Toko Pupuk</p>
                 </a>
@@ -102,8 +90,8 @@
               
             </ul>
           </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link  ">
+          <li class="nav-item ">
+              <a href="#" class="nav-link active ">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Manage Data Pemetaan
@@ -112,13 +100,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                  <a href="../form_data/add_data_kec.php" class="nav-link  ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="../layout/boxed.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Toko Pupuk</p>
                   </a>
@@ -172,7 +160,7 @@
           <div class="col-auto">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item "> Pemetaan</li>
+              <li class="breadcrumb-item "> Manage Data Pemetaan</li>
               <li class="breadcrumb-item active">Lahan Sawah</li>
             </ol>
           </div>
@@ -190,128 +178,31 @@
               <div class="card-header">
                
                
-        <select>
-            <option disabled selected> Kabupaten </option>			
-	    	</select>     
-    </div>
+        
+   
+   
    
               <!-- /.card-header -->
               <div class="card-body">
-              <!-- // mapnya anjg -->
-              <div id="map" class="map"> </div>
-              <script>
-		var map = L.map('map', {
-			center: [-4.00009925001936, 122.5142745973001], 
-			zoom: 12,
-			mapTypeId: 'satellite',
-			mapTypeIds: ['streets', 'terrain', 'satellite', 'topo'],
-			gestureHandling: false,
-			searchControl: false,
-			locateControl: true,
-			pegmanControl: false,
-			fullscreenControl: true,
-			minimapControl: false,
-			preferCanvas: false,
-			trackResize: true,
-			attributeControl: true,
-			minZoom:11,
-			maxZoom:17,
-			visualClick:true,
-			//disableDefaultUI: false,
-			//layersControl: false,
-
-			plugins: [
-				"@raruto/leaflet-elevation@1.3.x/dist/leaflet-elevation.css",
-				"@raruto/leaflet-elevation@1.3.x/dist/leaflet-elevation.js"
-			]
-		});
-
-		// Instantiate KMZ parser (async)
-		var kmz = L.kmzLayer(null, {
-			// geometryToLayer: function(data, xml) {
-			// 	let layer = this._geometryToLayer(data, xml);
-			// 	let el = xml.getElementsByTagName('GroundOverlay');
-			// 	for (let k = 0; k < el.length; k++) {
-			// 		l = _.parseGroundOverlay(el[k], data.properties);
-			// 		if (l) {
-			// 			layer.addLayer(l);
-			// 		}
-			// 	}
-			// 	return layer;
-			// }
-		}).addTo(map);
-
-		kmz.on('load', function(e) {
-			control.addOverlay(e.layer, e.name);
-			// e.layer.addTo(map);
-		});
-
-		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
-		kmz.add('../asset/file_kmz/itulah.kmz');
-		// kmz.add('../asset/file_kmz/hmmitumi.kmz');
+                <table id="tblData" class="table table-bordered table-striped" border="1">
+                  <thead style="text-align:center">
+                    <tr>
+                      <th >No </th>
+                      <th> Nama Toko </th>
+                      <th> Kabupaten </th>
+                      <th> Koordinat </th>
+                      <th width="10%"> Action </th>
 
 
+                  </tr>
+                  </thead>
+                  <tbody id="ready">
 
-		// kmz.add('../examples/regions.kmz');
-		// kmz.add('../examples/capitals.kmz');
-		// kmz.add('../examples/globe.kmz');
-		// kmz.add('../examples/multigeometry.kmz');
-		// kmz.add('../examples/etna.kmz');
-
-		// var opts = {
-		// 	elevationControl: {
-		// 		url: "https://raruto.github.io/leaflet-elevation/examples/via-emilia.gpx",
-		// 		options: {
-		// 			theme: "lightblue-theme",
-		// 			collapsed: false,
-		// 			detached: false,
-		// 			summary: "inline",
-		// 			followMarker: false,
-		// 			position: 'bottomleft',
-		// 			collapsed: true,
-		// 		},
-		// 	},
-		// 	layersControl: {
-		// 		options: {
-		// 			collapsed: false,
-		// 		},
-		// 	},
-		// };
-
-		// var controlElevation;
-
-		// map.on('plugins_loaded', function() {
-		//
-		// 	controlElevation = L.control.elevation(opts.elevationControl.options);
-		// 	var controlLayer = L.control.layers(null, null, opts.layersControl.options);
-		//
-		// 	controlElevation.addTo(map);
-		// 	controlLayer.addTo(map);
-		//
-		// 	controlElevation.on('eledata_loaded', function(e) {
-		// 		controlLayer.addOverlay(e.layer, e.name);
-		// 	});
-		//
-		// 	controlElevation.load(opts.elevationControl.url);
-		//
-		// });
-
-		var control = L.control.layers(null, null, {
-			collapsed: false
-		}).addTo(map);
-	</script>
-
-
-
-
-
-
-
-
-
-
-
-
+                
+                  <tfoot>
+                 
+                  </tfoot>
+                </table>
               </div>
               <!-- /.card-body -->
             </div>
@@ -343,14 +234,14 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables  & Plugins -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- AdminLTE App -->
-<script src="../../../dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../../dist/js/demo.js"></script>
+<script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 
 </body>

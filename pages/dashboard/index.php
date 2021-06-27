@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
   <!-- Leaflet -->
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet-src.js"></script>
 	<script src="https://unpkg.com/leaflet-ui@0.4.5/dist/leaflet-ui-src.js"></script>
@@ -93,13 +96,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="provinsi_data.php" class="nav-link ">
+                <a href="view_lahan.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lahan Sawah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="kabupaten_data.php" class="nav-link ">
+                <a href="view_sawah.php" class="nav-link active ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Toko Pupuk</p>
                 </a>
@@ -213,7 +216,7 @@
 			mapTypeIds: ['streets',  'satellite', 'topo'],
 			gestureHandling: false,
 			searchControl: false,
-			locateControl: false,
+			locateControl: true,
 			pegmanControl: false,
 			fullscreenControl: true,
 			minimapControl: false,
@@ -252,9 +255,9 @@
 			e.layer.addTo(map);
 		});
 
-		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
-		kmz.add('asset/file_kmz/itulah.kmz');
-		kmz.add('asset/file_kmz/hmmitumi.kmz');
+	// marker nya
+    var marker = L.marker([-3.9922560617994294, 122.5142054096418]).addTo(map)
+			.bindPopup("<b>Toko Putri Tani</b><br />").openPopup();
 
 
 
@@ -291,6 +294,7 @@
 		// var control = L.control.layers(null, null, {
 		// 	collapsed: false
 		// }).addTo(map);
+  
 	</script>
 
 
