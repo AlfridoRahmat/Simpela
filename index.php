@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <head>
                               <meta charset="utf-8">
                               <meta name="viewport" content="width=device-width, initial-scale=1">
-                              <title>e-Sarpem Pertanian</title>
+                              <title>GIS info PSP</title>
                               <link rel="icon" type="image/png" href="../../asset/images/icons/favicon.ico"/>
                               <!-- Google Font: Source Sans Pro -->
                               <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -97,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <!-- Brand Logo -->
                                 <a href="../index.php" class="brand-link">
                                   <img src="../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
-                                  <span class="brand-text font-weight-light">e-Sarpem Pertanian</span>
+                                  <span class="brand-text font-weight-light">GIS info PSP</span>
                                 </a>
                             
                                 <!-- Sidebar -->

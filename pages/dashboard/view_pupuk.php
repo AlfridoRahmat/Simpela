@@ -2,19 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>e-Sarpem Pertanian</title>
+  <title>SIMPELA Pertanian</title>
   <link rel="icon" type="image/png" href="../../asset/images/icons/favicon.ico"/>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <!-- Leaflet -->
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet-src.js"></script>
+	<script src="https://unpkg.com/leaflet-ui@0.4.5/dist/leaflet-ui-src.js"></script>
+
+	<script src="dist/leaflet-kmz-src.js"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <style>
+       html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .map {
+        /* margin: 0;
+        padding: 0; */
+        /* width: 1200px; */
+        /* height: 100%; */
+        /* width: 1200px; */
+        height: 600px;
+      }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -34,7 +55,7 @@
     <!-- Brand Logo -->
     <a href="../index.php" class="brand-link">
       <img src="../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
-      <span class="brand-text font-weight-light">e-Sarpem Pertanian</span>
+      <span class="brand-text font-weight-light">Simpela Pertanian</span>
     </a>
 
     <!-- Sidebar -->
@@ -66,7 +87,7 @@
    
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
               Pemetaan
@@ -81,17 +102,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view_sawah.php" class="nav-link active ">
+                <a href="view_sawah.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Toko Pupuk</p>
                 </a>
               </li>
-              
-              
             </ul>
           </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link  ">
+          <li class="nav-item ">
+              <a href="#" class="nav-link active ">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Manage Data Pemetaan
@@ -100,13 +119,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                  <a href="data_lahan.php" class="nav-link  ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="data_pupuk.php" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Toko Pupuk</p>
                   </a>
@@ -123,21 +142,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                  <a href="add_lahan.php" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="add_pupuk.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Toko Pupuk</p>
                   </a>
                 </li>
               </ul>
             </li>
-              
-              
               <li class="nav-item">
                 <a href="../pipeline/logout.php" class="nav-link ">
                   <i class="far fa-copy nav-icon"></i>
@@ -160,8 +177,8 @@
           <div class="col-auto">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item "> Alokasi Pupuk</li>
-              <li class="breadcrumb-item active">Provinsi</li>
+              <li class="breadcrumb-item "> Pemetaan</li>
+              <li class="breadcrumb-item active">Lahan Sawah</li>
             </ol>
           </div>
         </div>
@@ -178,41 +195,115 @@
               <div class="card-header">
                
                
-        <select class=""  id="tahun" onchange="getTahun(this.value);">
-            <option disabled selected> Tahun Alokasi </option>
-            <option value="2021">2021</option>
-            <option value="2022">2022	</option>						
-		</select>
-   
-    <div class="card-tools">
-            <button type="button" class="btn btn-primary"  title="export document" onclick="exportTableToExcel('tblData')">
-              <i class="fas fa-copy"> Export Data To Excel</i>
-            </button>
-         </div> 
+        <select>
+            <option disabled selected> Kabupaten </option>			
+	    	</select>     
     </div>
    
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="tblData" class="table table-bordered table-striped" border="1">
-                  <thead style="text-align:center">
-                    <tr>
-                      <th >No </th>
-                      <th>Kabupaten</th>
-                      <th>Urea</th>
-                      <th>SP-36</th>						
-                      <th>ZA</th>						
-                      <th>NPK</th>
-                      <th >NPK Formula Khusus</th>
-                      <th >Organik Granul</th>
-                  </tr>
-                  </thead>
-                  <tbody id="ready">
+              <!-- // mapnya anjg -->
+              <div id="map" class="map"></div>
+              <script>
+		var map = L.map('map', {
+			center: [-4.00009925001936, 122.5142745973001], 
+			zoom: 12,
+			mapTypeId: 'satellite',
+			mapTypeIds: ['streets',  'satellite', 'topo'],
+			gestureHandling: false,
+			searchControl: false,
+			locateControl: true,
+			pegmanControl: false,
+			fullscreenControl: true,
+			minimapControl: false,
+			preferCanvas: false,
+			trackResize: true,
+			attributeControl: false,
+			minZoom:11,
+			maxZoom:17,
+			visualClick:false,
+			//disableDefaultUI: false,
+			//layersControl: false,
 
-                
-                  <tfoot>
-                 
-                  </tfoot>
-                </table>
+			plugins: [
+				"@raruto/leaflet-elevation@1.3.x/dist/leaflet-elevation.css",
+				"@raruto/leaflet-elevation@1.3.x/dist/leaflet-elevation.js"
+			]
+		});
+
+		// Instantiate KMZ parser (async)
+		var kmz = L.kmzLayer(null, {
+			// geometryToLayer: function(data, xml) {
+			// 	let layer = this._geometryToLayer(data, xml);
+			// 	let el = xml.getElementsByTagName('GroundOverlay');
+			// 	for (let k = 0; k < el.length; k++) {
+			// 		l = _.parseGroundOverlay(el[k], data.properties);
+			// 		if (l) {
+			// 			layer.addLayer(l);
+			// 		}
+			// 	}
+			// 	return layer;
+			// }
+		}).addTo(map);
+
+		kmz.on('load', function(e) {
+			// control.addOverlay(e.layer, e.name);
+			e.layer.addTo(map);
+		});
+
+	// marker nya
+    var marker = L.marker([-3.9922560617994294, 122.5142054096418]).addTo(map)
+			.bindPopup("<b>Toko Putri Tani</b><br />").openPopup();
+
+
+
+		// kmz.add('../examples/regions.kmz');
+		// kmz.add('../examples/capitals.kmz');
+		// kmz.add('../examples/globe.kmz');
+		// kmz.add('../examples/multigeometry.kmz');
+		// kmz.add('../examples/etna.kmz');
+
+		
+
+		// var controlElevation;
+
+		// map.on('plugins_loaded', function() {
+		//
+		// 	controlElevation = L.control.elevation(opts.elevationControl.options);
+		// 	var controlLayer = L.control.layers(null, null, opts.layersControl.options);
+		//
+		// 	controlElevation.addTo(map);
+		// 	controlLayer.addTo(map);
+		//
+		// 	controlElevation.on('eledata_loaded', function(e) {
+		// 		controlLayer.addOverlay(e.layer, e.name);
+		// 	});
+		//
+		// 	controlElevation.load(opts.elevationControl.url);
+		//
+		// });
+
+
+
+      // Model Di Kanan Atas Utk Display Semua KMZ yang ada
+
+		// var control = L.control.layers(null, null, {
+		// 	collapsed: false
+		// }).addTo(map);
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
               </div>
               <!-- /.card-body -->
             </div>
@@ -248,78 +339,11 @@
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script>
-  
 
-  
-function getTahun(val){
- 
- 
- $.ajax({
- type: "POST",
- url: "../pipeline/data_total_alok_get.php",
- data : "tahun="+ tahun.value,
- success: function(data){
-   
-    $("#ready").html(data);
-   
- }
-});
-}
-
-
-function exportTableToExcel(tableID, filename = ''){
-    var downloadLink;
-    var dataType = 'application/vnd.ms-excel';
-    var tableSelect = document.getElementById(tableID);
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-    
-	var bulan = document.getElementById("bulan");
-	var tahun = document.getElementById("tahun");
-
-	
-    // Specify file name
-    filename = filename?filename +'.xls': 'Alokasi Pupuk Tahun '+  tahun.value  +'.xls';
-    
-    // Create download link element
-    downloadLink = document.createElement("a");
-    
-    document.body.appendChild(downloadLink);
-    
-    if(navigator.msSaveOrOpenBlob){
-        var blob = new Blob(['\ufeff', tableHTML], {
-            type: dataType
-        });
-        navigator.msSaveOrOpenBlob( blob, filename);
-    }else{
-        // Create a link to the file
-        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-    
-        // Setting the file name
-        downloadLink.download = filename;
-        
-        //triggering the function
-        downloadLink.click();
-    }
-}
-
-</script>
 </body>
 </html>

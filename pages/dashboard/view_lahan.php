@@ -84,7 +84,7 @@
    
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
               Pemetaan
@@ -93,23 +93,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="view_lahan.php" class="nav-link active ">
+                <a href="view_lahan.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lahan Sawah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view_sawah.php" class="nav-link ">
+                <a href="view_sawah.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Toko Pupuk</p>
                 </a>
               </li>
-              
-              
             </ul>
           </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link  ">
+          <li class="nav-item ">
+              <a href="#" class="nav-link active ">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Manage Data Pemetaan
@@ -118,13 +116,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                  <a href="data_lahan.php" class="nav-link  ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="data_pupuk.php" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Toko Pupuk</p>
                   </a>
@@ -141,21 +139,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                  <a href="add_lahan.php" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="add_pupuk.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Toko Pupuk</p>
                   </a>
                 </li>
               </ul>
             </li>
-              
-              
               <li class="nav-item">
                 <a href="../pipeline/logout.php" class="nav-link ">
                   <i class="far fa-copy nav-icon"></i>
@@ -248,8 +244,9 @@
 		}).addTo(map);
 
 		kmz.on('load', function(e) {
-			// control.addOverlay(e.layer, e.name);
+			control.addOverlay(e.layer, e.name);
 			e.layer.addTo(map);
+    
 		});
 
 		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
@@ -288,9 +285,13 @@
 
       // Model Di Kanan Atas Utk Display Semua KMZ yang ada
 
-		// var control = L.control.layers(null, null, {
-		// 	collapsed: false
-		// }).addTo(map);
+		var control = L.control.layers(null, null, {
+			collapsed: false,
+     
+		}).addTo(map);
+
+
+    
 	</script>
 
 

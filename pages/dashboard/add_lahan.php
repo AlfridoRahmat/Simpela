@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>e-Sarpem Pertanian</title>
+  <title>GIS info PSP</title>
   <link rel="icon" type="image/png" href="../../asset/images/icons/favicon.ico"/>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -18,26 +18,23 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  
+<div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="../../dist/img/logop.png" alt="AdminLTELogo" height="60" width="60">
+  </div>  
 
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    
-
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      </ul>
-
-     
-
+      </ul>   
   </nav>
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="../index.php" class="brand-link">
       <img src="../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
-      <span class="brand-text font-weight-light">e-Sarpem Pertanian</span>
+      <span class="brand-text font-weight-light">GIS info PSP</span>
     </a>
 
     <!-- Sidebar -->
@@ -69,69 +66,74 @@
    
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-              Data Alokasi Pupuk
+              Pemetaan
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="provinsi_data.php" class="nav-link ">
+                <a href="view_lahan.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Provinsi</p>
+                  <p>Lahan Sawah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="kabupaten_data.php" class="nav-link ">
+                <a href="view_sawah.php" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kabupaten</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="alokasi_data.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p> Data Alokasi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="alokasi_data_all.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p> Alokasi Keseluruhan</p>
+                  <p>Toko Pupuk</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link  ">
+          <li class="nav-item ">
+              <a href="#" class="nav-link active ">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Manage Data Alokasi
+                  Manage Data Pemetaan
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                  <a href="data_lahan.php" class="nav-link  ">
                     <i class="far fa-circle nav-icon"></i>
-                    <p> Tambah Data</p>
+                    <p> Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="data_pupuk.php" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p> Tambah Data Alokasi</p>
+                    <p> Data Toko Pupuk</p>
                   </a>
                 </li>
               </ul>
             </li>
-              <li class="nav-item">
-                <a href="..\examples\404.html" class="nav-link ">
-                  <i class="far fa-copy nav-icon"></i>
-                  <p> ALSINTAN</p>
-                </a>
-              </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link  ">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+               Master Data
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="add_lahan.php" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Upload Data Lahan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="add_pupuk.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Upload Toko Pupuk</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
               <li class="nav-item">
                 <a href="../pipeline/logout.php" class="nav-link ">
                   <i class="far fa-copy nav-icon"></i>
@@ -144,7 +146,6 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -154,8 +155,8 @@
           <div class="col-auto">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item "> Laporan</li>
-              <li class="breadcrumb-item active"> Sisa Alokasi </li>
+              <li class="breadcrumb-item "> Manage Data Pemetaan</li>
+              <li class="breadcrumb-item active">Lahan Sawah</li>
             </ol>
           </div>
         </div>
@@ -168,50 +169,73 @@
               <!-- /.card-header -->
             <div class="container-fluid">
             <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <h3 class="card-title"> Input Penyaluran Kabupaten </h3>
 
-              <div class="card-header">
-               
-               
-        <select class=""  id="tahun" onchange="getTahun(this.value);">
-            <option disabled selected> Tahun Alokasi </option>
-            <option value="2021">2021</option>
-            <option value="2022">2022	</option>						
-		</select>
-   
-    <div class="card-tools">
-            <button type="button" class="btn btn-primary"  title="export document" onclick="exportTableToExcel('tblData')">
-              <i class="fas fa-copy"> Export Data To Excel</i>
-            </button>
-         </div> 
-    </div>
-   
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="tblData" class="table table-bordered table-striped" border="1">
-                  <thead style="text-align:center">
-                    <tr>
-                      <th >No </th>
-                      <th>Kabupaten</th>
-                      <th>Urea</th>
-                      <th>SP-36</th>						
-                      <th>ZA</th>						
-                      <th>NPK</th>
-                      <th >NPK Formula Khusus</th>
-                      <th >Organik Granul</th>
-                  </tr>
-                  </thead>
-                  <tbody id="ready">
-                  
-                
-                  <tfoot>
-                 
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <form method="POST" action="#">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Kabupaten</label>
+                    <select class="form-control select2" style="width: 100%;" onchange="getProv(this.value);">
+                      <option disabled="disabled" selected="selected"> Nama Kabupaten</option>
+                      <?php
+                  include_once "../../koneksi.php";
+
+								$dropProv = "SELECT * FROM tb_prov";
+								$dropEx = mysqli_query($connection,$dropProv);
+								
+								while($dataProv = mysqli_fetch_array($dropEx)) 	{
+								?>
+                      <option value="<?php echo $dataProv["id_prov"]; ?>"> <?php echo $dataProv["nama_provinsi"]?>
+                      </option>
+                      <?php
+								}
+								?>
+
+
+
+
+
+
+
+                    </select>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label> Upload File Lahan </label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" accept=".kmz">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                     
+                  </div>
+                  <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+                
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+
+              
+              
+              <div class="col-md-3">
+
+                <button type="submit" class="form-control btn btn-primary rounded submit px-5 toastsDefaultSuccess" name="tombol">Submit Data</button>
+</div>
+
+            </form>
+            
+            <!-- /.row -->
+           
+          </div>
+        </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -241,79 +265,23 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script>
-  
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
-  
-function getTahun(val){
- 
- 
- $.ajax({
- type: "POST",
- url: "../pipeline/data_alokasi_get.php",
- data : "tahun="+ tahun.value,
- success: function(data){
-   
-    $("#ready").html(data);
-   
- }
+<script> 
+
+$(function () {
+  bsCustomFileInput.init();
 });
-}
 
 
-function exportTableToExcel(tableID, filename = ''){
-    var downloadLink;
-    var dataType = 'application/vnd.ms-excel';
-    var tableSelect = document.getElementById(tableID);
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-    
-	var bulan = document.getElementById("bulan");
-	var tahun = document.getElementById("tahun");
-
-	
-    // Specify file name
-    filename = filename?filename +'.xls': 'Alokasi Pupuk Tahun '+  tahun.value  +'.xls';
-    
-    // Create download link element
-    downloadLink = document.createElement("a");
-    
-    document.body.appendChild(downloadLink);
-    
-    if(navigator.msSaveOrOpenBlob){
-        var blob = new Blob(['\ufeff', tableHTML], {
-            type: dataType
-        });
-        navigator.msSaveOrOpenBlob( blob, filename);
-    }else{
-        // Create a link to the file
-        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-    
-        // Setting the file name
-        downloadLink.download = filename;
-        
-        //triggering the function
-        downloadLink.click();
-    }
-}
 
 </script>
+<!-- Page specific script -->
+
 </body>
 </html>

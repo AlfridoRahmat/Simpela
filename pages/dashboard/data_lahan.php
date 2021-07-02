@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>e-Sarpem Pertanian</title>
+  <title>GIS info PSP</title>
   <link rel="icon" type="image/png" href="../../asset/images/icons/favicon.ico"/>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -34,7 +34,7 @@
     <!-- Brand Logo -->
     <a href="../index.php" class="brand-link">
       <img src="../../dist/img/logox.png" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
-      <span class="brand-text font-weight-light">e-Sarpem Pertanian</span>
+      <span class="brand-text font-weight-light">GIS info PSP</span>
     </a>
 
     <!-- Sidebar -->
@@ -86,8 +86,6 @@
                   <p>Toko Pupuk</p>
                 </a>
               </li>
-              
-              
             </ul>
           </li>
           <li class="nav-item ">
@@ -100,13 +98,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link active ">
+                  <a href="data_lahan.php" class="nav-link  ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="data_pupuk.php" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Toko Pupuk</p>
                   </a>
@@ -123,21 +121,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../form_data/add_data_kec.php" class="nav-link ">
+                  <a href="add_lahan.php" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
+                  <a href="add_pupuk.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Toko Pupuk</p>
                   </a>
                 </li>
               </ul>
             </li>
-              
-              
               <li class="nav-item">
                 <a href="../pipeline/logout.php" class="nav-link ">
                   <i class="far fa-copy nav-icon"></i>
