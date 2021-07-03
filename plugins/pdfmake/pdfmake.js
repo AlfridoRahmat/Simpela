@@ -58032,7 +58032,7 @@ module.exports = {
     // Main source: https://www.w3.org/TR/encoding/#gbk-encoder
     // http://icu-project.org/docs/papers/gb18030.html
     // http://source.icu-project.org/repos/icu/data/trunk/charset/data/xml/gb-18030-2000.xml
-    // http://www.khngai.com/chinese/charmap/tblgbk.php?page=0
+    // http://www.khngai.com/chinese/charmap/tblgbk.html?page=0
     'gb18030': {
         type: '_dbcs',
         table: function() { return __webpack_require__(172).concat(__webpack_require__(251)) },
