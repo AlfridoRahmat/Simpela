@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-</head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 <div class="preloader flex-column justify-content-center align-items-center">
@@ -38,7 +37,21 @@
     </a>
 
     <!-- Sidebar -->
-    <nav class="mt-2">
+    <div class="sidebar">
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -67,7 +80,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view_sawah.html" class="nav-link  ">
+                <a href="view_pupuk.html" class="nav-link  ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Toko Pupuk</p>
                 </a>
@@ -128,6 +141,8 @@
               </li>
         </ul>
       </nav>
+      <!-- /.sidebar-menu -->
+    </div>
     <!-- /.sidebar -->
   </aside>
   <!-- Content Wrapper. Contains page content -->
