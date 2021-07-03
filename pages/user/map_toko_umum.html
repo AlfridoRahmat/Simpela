@@ -107,7 +107,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3"> </br> </br> </br> Peta Lahan Sawah</h5>
+            <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3"> </br> </br> </br> Toko - Toko Penyedia Pupuk</h5>
 
           </div>
         </div>
@@ -121,10 +121,10 @@
               var map = L.map('map', {
                 center: [-4.00009925001936, 122.5142745973001],
                 zoom: 12,
-                //   mapTypeId: 'satellite',
-                mapTypeIds: ['satellite'],
+                  mapTypeId: 'satellite',
+                // mapTypeIds: ['satellite'],
                 
-                gestureHandling: true,
+                gestureHandling: false,
                 searchControl: false,
                 locateControl: false,
                 pegmanControl: false,
@@ -132,12 +132,12 @@
                 minimapControl: true,
                 preferCanvas: true,
                 trackResize: false,
-                attributeControl: true,
+                attributeControl: false,
                 minZoom: 11,
                 maxZoom: 17,
                 visualClick: true,
                 disableDefaultUI: false,
-                //layersControl: false,
+                layersControl: false,
                 mapTypeControl: false,
                 
 
@@ -180,23 +180,23 @@
 
 
 
-              var controlElevation;
+            //   var controlElevation;
 
-              map.on('plugins_loaded', function() {
+            //   map.on('plugins_loaded', function() {
               
-              	controlElevation = L.control.elevation(opts.elevationControl.options);
-              	var controlLayer = L.control.layers(null, null, opts.layersControl.options);
+            //   	controlElevation = L.control.elevation(opts.elevationControl.options);
+            //   	var controlLayer = L.control.layers(null, null, opts.layersControl.options);
               
-              	controlElevation.addTo(map);
-              	controlLayer.addTo(map);
+            //   	controlElevation.addTo(map);
+            //   	controlLayer.addTo(map);
               
-              	controlElevation.on('eledata_loaded', function(e) {
-              		controlLayer.addOverlay(e.layer, e.name);
-              	});
+            //   	controlElevation.on('eledata_loaded', function(e) {
+            //   		controlLayer.addOverlay(e.layer, e.name);
+            //   	});
               
-              	controlElevation.load(opts.elevationControl.url);
+            //   	controlElevation.load(opts.elevationControl.url);
               
-              });
+            //   });
 
 
 
