@@ -106,7 +106,7 @@
                     <p> Data Lahan</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"></li>
                   <a href="data_pupuk.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Data Toko Pupuk</p>
@@ -115,7 +115,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link active  ">
+              <a href="#" class="nav-link active ">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Master Data
@@ -124,13 +124,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="add_lahan.html" class="nav-link active">
+                  <a href="add_lahan.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Data Lahan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="add_pupuk.html" class="nav-link">
+                  <a href="add_pupuk.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p> Upload Toko Pupuk</p>
                   </a>
@@ -184,29 +184,55 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label>Kabupaten</label>
-                      <select class="form-control select2" style="width: 100%;" onchange="getProv(this.value);">
-                        <option disabled="disabled" selected="selected"> Nama Kabupaten</option>
+                      <label>Nama Toko Pupuk</label>
+                      <input type="text" class="form-control select2" placeholder="Nama Toko Pupuk" required
+                        name="nama_tp">
 
-                        <option value=""></option>
-                        <!-- // kasih masuk sja di api nanti nama-nama kabupatennya -->
-                      </select>
-                    </div>
-                    <!-- /.form-group -->
-                    <div class="form-group">
-                      <label> Upload File Lahan </label>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" accept=".kmz">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-
+                      </input>
                     </div>
                     <!-- /.form-group -->
                   </div>
                   <!-- /.col -->
 
+
                   <!-- /.col -->
                 </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Koordinat</label>
+                      <input type="text" class="form-control select2" placeholder="Koordinat" required name="koodinat">
+
+                      </input>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col -->
+
+
+                  <!-- /.col -->
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Kontak Info</label>
+                      <input type="text" class="form-control select2" placeholder="Kontak Info" required
+                        name="Kontak_tp">
+
+                      </input>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col -->
+
+
+                  <!-- /.col -->
+                </div>
+                <!-- /.col -->
+
+                <!-- /.col -->
+
                 <!-- /.row -->
 
 
@@ -220,14 +246,14 @@
               </form>
 
               <!-- /.row -->
-
             </div>
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
+        <!-- /.col -->
     </div>
+    <!-- /.row -->
   </div>
+
   <!-- /.container-fluid -->
   </section>
   <!-- /.content -->
